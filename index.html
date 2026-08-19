@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" href="icon.png">
+    <title>Document</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #F1F2F3;
+            justify-content: center;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        header {
+            background-color: #18A763;
+            height: 10vh;
+            width: 100%;
+            ;
+            display: flex;
+            top: 0;
+            position: fixed;
+        }
+
+        header div.left {
+            display: flex;
+            flex-direction: row;
+            width: 50%;
+            align-items: center;
+            height: 100%;
+            padding-left: 2vw;
+        }
+
+        header div.right {
+            display: flex;
+            flex-direction: row;
+            width: 50%;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            gap: 2vw;
+        }
+
+        header div a {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 1vw;
+        }
+
+        footer {
+            height: 28vh;
+            background-color: #017940;
+            bottom: 0;
+            width: 100%;
+            ;
+        }
+
+        footer div.topFooter {
+            flex-direction: row;
+            display: flex;
+            height: 21vh;
+        }
+
+        footer div.bottomFooter {
+            flex-direction: row;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        footer div.left {
+            display: flex;
+            flex-direction: row;
+            width: 50%;
+            align-items: center;
+            height: 100%;
+            padding-left: 7vw;
+        }
+
+        footer div.right {
+            display: flex;
+            flex-direction: row;
+            width: 50%;
+            align-items: center;
+            height: 100%;
+            justify-content: space-evenly;
+            color: white;
+        }
+
+        footer div i {
+            font-size: 11vh;
+        }
+
+        footer p {
+            color: white;
+            text-align: center;
+        }
+
+        .appDisplay {
+            height: 70vh;
+            width: 90vw;
+            justify-self: center;
+            justify-content: space-evenly;
+            display: flex;
+            flex-direction: row;
+            margin-top: 10vh;
+        }
+
+        .appDisplay .left {
+            display: flex;
+            flex-direction: column;
+            width: 50vw;
+        }
+
+        .appDisplay .right {
+            justify-content: center;
+            margin-top: 7vh;
+            display: flex;
+            width: 50vw;
+            justify-content: space-evenly;
+        }
+
+        .appDisplay p {
+            font-size: 3vw;
+        }
+
+        .appDisplay p span {
+            color: #18A763;
+        }
+
+        .button {
+            background-color: #008D4A;
+            border-radius: 10px;
+            padding-inline: 0.5vw;
+            height: fit-content;
+            width: fit-content;
+            cursor: pointer;
+        }
+
+        .button:active {
+            transform: scale(90%);
+            background-color: #017940
+        }
+
+        a:active {
+            color: #ebebeb
+        }
+
+        .button a {
+            font-size: 2vw;
+            margin: 0.5vw;
+            color: white;
+            text-decoration: none;
+
+        }
+
+        #about {
+            align-items: center;
+            height: 64vh;
+            width: 90vw;
+            justify-self: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            margin-top: 18vh;
+            margin-bottom: 18vh;
+        }
+
+        .abt {
+            flex-direction: row;
+            gap: 0.1vh;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 2vw;
+            color: #017940;
+        }
+
+        .subtitle {
+            font-size: 1vw;
+            color: #017940;
+        }
+
+        .aboutCard {
+            height: 46vh;
+            width: 70vw;
+            background-color: #18A763;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .abttextholder {
+            width: 38vw;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .aboutText {
+            margin: 1vw;
+            font-size: 1vw;
+            height: max-content;
+            width: 32vw;
+            color: #fff;
+            text-align: justify;
+        }
+
+        #mission {
+            align-items: center;
+            height: 140vh;
+            width: 90vw;
+            justify-self: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            margin-top: 4vh;
+            margin-bottom: 4vh;
+        }
+
+        .icons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            width: 90vw;
+            margin-top: 8vh;
+        }
+
+        .icons i {
+            font-size: 4vw;
+            color: #000;
+        }
+
+        .cards {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 70vw;
+            margin-top: 4vh;
+            gap: 1.5vw;
+        }
+
+        .card {
+            background-color: #18A763;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 2vw 1.5vw;
+        }
+
+        .cardTitle {
+            font-size: 1.6vw;
+            font-weight: 700;
+            color: #fff;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .cardText {
+            font-size: 0.95vw;
+            color: #fff;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .cardText strong {
+            font-weight: 700;
+        }
+
+        #prizes {
+            align-items: center;
+            width: 100%;
+            ;
+            height: 150vh;
+            justify-self: center;
+            justify-content: flex-start;
+            display: flex;
+            flex-direction: column;
+            margin-top: 19vh;
+            margin-bottom: 19vh;
+        }
+
+        .prizeBand {
+            background-color: #E3F3EA;
+            width: 100%;
+            ;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            padding-block: 5vh;
+            margin-top: 6vh;
+        }
+
+        .prizeItem {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1.2vw;
+        }
+
+        .prizeTitle {
+            font-size: 1.4vw;
+            font-weight: 800;
+            color: #17181A;
+            margin: 0;
+        }
+
+        .prizeSub {
+            font-size: 0.95vw;
+            font-weight: 600;
+            color: #17181A;
+            margin: 0;
+        }
+
+        .medalTitle {
+            font-size: 1.4vw;
+            font-weight: 800;
+            color: #E8622C;
+            margin: 0;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <div class='left'>
+            <img src="Logo.png" style="object-fit: contain;  width: 8vw; " />
+        </div>
+        <div class="right">
+            <a>Monografia</a>
+            <a href="#about">Sobre nós</a>
+            <a href="#prizes">Prêmios</a>
+            <a href="#footer">Contato</a>
+
+        </div>
+    </header>
+
+    <div class="appDisplay">
+        <div class="left">
+            <p>
+                Cuidando de quem cuida através do
+                <span>
+                    Acode Aê
+                </span>
+            </p>
+            <div class="button">
+                <a href="#about">Saiba Mais</a>
+            </div>
+        </div>
+        <div class='right'>
+            <img src="cells.png" style="object-fit: contain; height: 90%;" />
+        </div>
+    </div>
+
+    <div id="about">
+        <div class="abt">
+            <p class="title">Sobre nós</p>
+            <p class="subtitle">Conheça nossa equipe!</p>
+        </div>
+        <div class="aboutCard">
+            <div class="abttextholder">
+                <p class="aboutText">
+                    Em janeiro de 2026, o Acode Aê surgiu a partir da ideia dos estudantes Leonardo Cavalcante, Lucas
+                    Paulino, Nathan Castillo e Stella de Morais. Nos meses seguintes, foram orientados pela professora
+                    Nathane Castro no desenvolvimento de TCC durante o terceiro ano do Ensino Médio.
+                </p>
+            </div>
+            <img src="group.png" style="object-fit: cover; width: 32vw; height: 100%;" />
+        </div>
+    </div>
+
+    <div id="mission">
+        <div class="abt">
+            <p class="title">Missão, Visão e Valores</p>
+            <p class="subtitle">Conheça nossa equipe!</p>
+        </div>
+        <div class="icons">
+            <i class="fa-solid fa-bullseye"></i>
+            <i class="fa-regular fa-eye"></i>
+            <i class="fa-solid fa-hand-holding-heart"></i>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <p class="cardTitle">Missão</p>
+                <p class="cardText">
+                    O Acode Aê foi desenvolvido com o propósito de <strong>aprimorar a gestão do cuidado voltada à
+                        pessoa idosa</strong>. Considerando a alta exigência de tempo e esforço dessa profissão, o
+                    aplicativo surge como uma solução para a crescente necessidade de assistência especializada,
+                    aliviando a sobrecarga física e emocional decorrente das responsabilidades do cuidador.
+                </p>
+            </div>
+            <div class="card">
+                <p class="cardTitle">Visão</p>
+                <p class="cardText">
+                    Ao integrar o cuidado com o monitoramento tecnológico, demonstramos preocupação com o suporte
+                    para cuidadores familiares e profissionais. Sendo fundamental para nos tornarmos a
+                    <strong>principal referência nacional de ferramenta assistencial</strong> de saúde.
+                </p>
+            </div>
+            <div class="card">
+                <p class="cardTitle">Valores</p>
+                <p class="cardText">
+                    Desde o desenvolvimento até a aplicação prática, nós almejamos alcançar uma cultura envolta por
+                    empatia, acolhimento e inovação. Assim, acreditamos que entender os processos do cuidador possa
+                    <strong>criar um ambiente aberto para oportunidades e mudanças</strong> focadas na transformação
+                    da sociedade. <strong>Valorizando o bem-estar social</strong> e a saúde humana.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="prizes">
+        <div class="abt">
+            <p class="title">Prêmios</p>
+            <p class="subtitle">Medalhas e participações.</p>
+        </div>
+        <div class="prizeBand">
+            <div class="prizeItem">
+                <img src="Obt.png" style="object-fit: contain; width: 10vw; height: 10vh;" />
+                <div>
+                    <p class="prizeTitle">OBT</p>
+                    <p class="prizeSub">Olimpíada Brasileira<br>de Tecnologia</p>
+                </div>
+            </div>
+            <div class="prizeItem">
+                <img src="Bronze.png" style="object-fit: contain;width: 12vw; height: 12vh;" />
+                <p class="medalTitle">Medalha<br>de Bronze</p>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+        <div class="topFooter">
+            <div class='left'>
+                <img src="Logo.png" style="object-fit: contain; width: 16vw; height: 28vh;" />
+            </div>
+            <div class="right">
+                <i class="fa-brands fa-youtube"></i>
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+        </div>
+        <div class="bottomFooter">
+            <p>Acode Aê Cuidado e Tecnologia LTDA. c2026</p>
+            <p>Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
